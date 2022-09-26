@@ -20,8 +20,15 @@ def match(match_id):
 
 
 def is_match(fave_numbers_1, fave_numbers_2):
+    favenum1 = set(fave_numbers_1)
+    favenum2 = set(fave_numbers_2)
+    set3 = favenum1.intersection(favenum2)
     for number in fave_numbers_2:
-        if number not in fave_numbers_1:
+        if number not in fave_numbers_1 or len(fave_numbers_2) > len(fave_numbers_1):
+            return False
+        elif len(favenum2) == len(set3):
+            return True
+        else:
             return False
 
     return True
